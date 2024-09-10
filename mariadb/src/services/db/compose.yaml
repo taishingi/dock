@@ -1,0 +1,24 @@
+services:
+  mariadb:
+    image: otechdo/mariadb:latest
+    restart: always
+    environment:
+      DATABASE_URL: 'mysql://chronos@localhost:3306/chronos'
+      HOSTNAME: 'db.ji'
+    ports:
+      - "3050:3050"
+  postgres:
+    image: otechdo/postgresql:latest
+    restart: always
+    environment:
+      DATABASE_URL: 'postgres://chronos@localhost:5432/chronos'
+      HOSTNAME: 'db.ji'
+    ports:
+      - "5050:5050"
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+  cockpit:
+      image:

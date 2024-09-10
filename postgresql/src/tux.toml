@@ -1,0 +1,4 @@
+[lab]
+ip = "lab.ji"
+username = "root"
+services = ["db"]

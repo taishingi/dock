@@ -4,7 +4,7 @@ RUN export TERM=xterm-256color
 RUN echo 'TERM=xterm-256color' >> /etc/environment
 RUN rustup default stable
 RUN export CARGO_INSTALL_ROOT="/usr"
-RUN cargo install zuu@16.1.0
+RUN cargo install zuu
 RUN export PATH="$PATH"
 WORKDIR /app
 CMD [ "zuu" ]

@@ -2,20 +2,15 @@ DOCKER:=docker buildx build
 SEND:=docker push  
 
 all:
-	@$(DOCKER) -t taishingi/zuu:latest  zuu
-	@$(DOCKER) -t taishingi/rlang:stable rlang/stable 
-	@$(DOCKER) -t taishingi/rlang:beta rlang/beta 
-	@$(DOCKER) -t taishingi/rlang:nightly rlang/nightly 
-	@$(DOCKER) -t taishingi/glang:latest glang 
-	@$(DOCKER) -t taishingi/dlang:latest dlang 
-	@$(DOCKER) -t taishingi/clang:latest clang
-	@$(DOCKER) -t taishingi/jlang:latest jlang
+	@$(DOCKER) -t otechdo/mariadb:latest mariadb
+	@$(DOCKER) -t otechdo/postgresql:latest postgresql
+	@$(DOCKER) -t otechdo/zuu:latest zuu
+	@$(DOCKER) -t otechdo/rlang:stable rlang/stable
+	@$(DOCKER) -t otechdo/rlang:beta rlang/beta
+	@$(DOCKER) -t otechdo/rlang:nightly rlang/nightly
+	@$(DOCKER) -t otechdo/glang:latest glang
+	@$(DOCKER) -t otechdo/dlang:latest dlang
+	@$(DOCKER) -t otechdo/clang:latest clang
+	@$(DOCKER) -t otechdo/jlang:latest jlang
 send: all
-	@$(SEND) taishingi/zuu:latest 
-	@$(SEND) taishingi/rlang:stable 
-	@$(SEND) taishingi/rlang:beta 
-	@$(SEND) taishingi/rlang:nightly 
-	@$(SEND) taishingi/glang:latest
-	@$(SEND) taishingi/dlang:latest 
-	@$(SEND) taishingi/clang:latest 
-	@$(SEND) taishingi/jlang:latest 
+	tux push otechdo/mariadb:latest  otechdo/postgresql:latest  otechdo/zuu:latest  otechdo/rlang:stable  otechdo/rlang:beta  otechdo/rlang:nightly  otechdo/glang:latest otechdo/dlang:latest otechdo/clang:latest otechdo/jlang:latest

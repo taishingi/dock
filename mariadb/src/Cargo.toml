@@ -1,0 +1,15 @@
+[package]
+name = "chronos"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4.9.0"
+diesel = { version = "2.2.4", optional = true }
+tokio = { version = "1.40.0", features = ["full"] }
+
+[features]
+postgres = ["diesel/postgres", "diesel/extras", "diesel/postgres_backend", "diesel/without-deprecated"]
+mariadb = ["diesel/mysql", "diesel/extras", "diesel/mysql_backend", "diesel/mysqlclient-src", "diesel/without-deprecated"]
+sqlite = ["diesel/sqlite", "diesel/extras", "diesel/returning_clauses_for_sqlite_3_35", "diesel/without-deprecated"]
+
